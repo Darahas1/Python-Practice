@@ -12,6 +12,7 @@ There are several reasons Python is one of the most widely used languages today:
 Readability: Python code is known for being clear and concise, thanks to its use of indentation to define code blocks. This makes it easier to understand, debug, and maintain.
 Versatility: Python can be used for web development, data science, machine learning, scripting, and more. There are extensive libraries available for various tasks, making it easy to get started on a project.
 Beginner-friendly: Python's relatively simple syntax and large community make it a great language for beginners to learn programming. Many resources and tutorials are available online and in libraries.
+<br>
 What are some common uses of Python?
 <br>
 Here are a few areas where Python shines:
