@@ -5,7 +5,6 @@ Welcome to my Python practice repository! This repository contains various Pytho
 </p>
 <br>
 <p>This Repo includes:</p>
-<br>
 <ul>
   <li>Practiced problems</li>
   <li>Projects</li>
@@ -14,6 +13,5 @@ Welcome to my Python practice repository! This repository contains various Pytho
 <br>
 <h6>NOTE: </h6>
 <p>The maintainance of this repo hopefully helps me solidfy my Python Programming Skills.</p>
-<br>
 <p>Any Contributions or Suggestions are happily accepted.</p>
 
