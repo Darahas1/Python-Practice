@@ -1,0 +1,76 @@
+'''
+This is the same BS code but with custom testcases, DSA again Day 1.
+'''
+
+# cook your dish here
+def test_location(cards, query, mid):
+    if cards[mid] == query:
+        l = len(cards)-1
+        if mid+1 <= l and cards[mid+1] == query:
+            return 'right'
+        else:
+            return 'found'
+    elif cards[mid] < query:
+        return 'right'
+    else:
+        return 'left'
+        
+def location(cards, query):
+    lo, hi = 0, len(cards) - 1
+    
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        # print(f'low = {lo}, high = {hi}, mid = {mid}')
+        res = test_location(cards, query, mid)
+        
+        if res == 'found':
+            return mid
+        elif res == 'right':
+            lo = mid + 1
+        elif res == 'left':
+            hi = mid - 1
+        
+    return -1
+    
+
+#TestCases for the code
+test1 = {
+    'input':{
+        'cards': [1,2,4,4,4],
+        'query':4
+    },
+    'output': 4
+}
+test2 = {
+    'input':{
+        'cards': [0,0,0,0],
+        'query':1
+    },
+    'output': -1
+}
+test3 = {
+    'input':{
+        'cards': [],
+        'query':4
+    },
+    'output': -1
+}
+test4 = {
+    'input':{
+        'cards': [1,1,2,4,5],
+        'query':1
+    },
+    'output': 1
+}
+test5 = {
+    'input':{
+        'cards': [1],
+        'query':1
+    },
+    'output': 0
+}
+
+tests = [test1, test2, test3, test4, test5]
+
+for test in tests:
+    print(location(**test['input']) == test['output'])
