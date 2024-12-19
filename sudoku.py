@@ -10,39 +10,40 @@ grid = [[0, 0, 3, 8, 0, 0, 0, 0, 0],
         [3, 5, 1, 0, 9, 0, 0, 0, 0],
         [0, 6, 4, 0, 5, 0, 0, 1, 0]]
 
+print("\nYour Input:")
 print(np.matrix(grid))
 
 
 def possible(row, column, number):
-    global grid
-    for i in range(0,9):
-        if grid[row] [i] == number:
+    # Check if number is already in the row or column
+    for i in range(9):
+        if grid[row][i] == number or grid[i][column] == number:
             return False
-        
-        for i in range(0,9):
-            if grid[i] [row] == number:
+
+    # Check if number is in the 3x3 subgrid
+    x0 = (column // 3) * 3
+    y0 = (row // 3) * 3
+    for i in range(3):
+        for j in range(3):
+            if grid[y0 + i][x0 + j] == number:
                 return False
-            
-            x0 = (column // 3) * 3
-            y0 = (row // 3) * 3
-            for i in range(0,3):
-                for j in range(0,3):
-                    if grid[y0+i] [x0+j] == number:
-                        return False
-                    
-            return True
+    return True
+
+
 def solve():
     global grid
-    for row in range(0,9):
-        for column in  range(0,9):
-            if grid[row] [column] == 0:
-                for number in range(1,10):
-                    if possible(row, column, number):
-                        grid[row] [column] = number
-                        solve()
-                        grid[row] [column] = 0
-                return
-    print(np.matrix(grid))
-    input('More possible solutions')
+    for row in range(9):
+        for column in range(9):
+            if grid[row][column] == 0:  # Find an empty space
+                for number in range(1, 10):
+                    if possible(row, column, number):  # Check if number is valid
+                        grid[row][column] = number
+                        solve()  # Recursively solve the rest
+                        grid[row][column] = 0  # Backtrack if no solution found
+                return  # Return if no valid number can be placed
+    print("\nSolved Matrix:")
+    print(np.matrix(grid)) 
+    return  # Exit after finding one solution
 
-solve()
+if __name__ == '__main__':
+    solve()
